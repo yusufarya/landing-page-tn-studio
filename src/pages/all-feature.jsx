@@ -161,7 +161,7 @@ export function AllFeature() {
 
       </section>
 
-      <section className="relative bg-gray-50 py-10">
+      <section className="relative bg-blue-gray-100/30 py-10">
         <div className="mt-0 md:mt-10 lg:mt-10 flex flex-wrap items-center">
           <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
           <div className="w-full justify-center md:w-10/12 lg:w-10/12" 
@@ -170,7 +170,7 @@ export function AllFeature() {
               data-aos-easing="ease-in-out"
               data-aos-anchor-placement="top-center"
             >
-            <div className="flex space-x-3 overflow-x-hidden scrollbar-hide shadow-sm py-3 border-2 border-grey-100 rounded-md"
+            <div className="flex space-x-3 overflow-x-hidden scrollbar-hide shadow-sm py-3 border-2 border-blue-gray-100 rounded-md"
               {...events}
               ref={ref} 
             >
@@ -185,11 +185,11 @@ export function AllFeature() {
               }
             </div>
 
-            <div>
+            <div className="mt-3">
               <img 
                 src={selectedDataModule.img} 
                 alt={selectedDataModule.title}
-                className="w-full h-auto shadow-md rounded-md"
+                className="w-full h-auto shadow-md rounded-md border-2 border-blue-gray-100"
               />
             </div>
 
