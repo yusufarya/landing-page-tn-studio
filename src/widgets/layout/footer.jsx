@@ -81,38 +81,41 @@ export function Footer({ title, description, socials, menus, copyright }) {
 Footer.defaultProps = {
   title: "TN Studio",
   description:
-    "Easy to use React components for Tailwind CSS and Material Design.",
+    "Menunjukkan manfaat manajemen yang baik untuk meningkatkan layanan pemesanan.",
   socials: [
     {
       color: "gray",
       name: "twitter",
-      path: "https://www.twitter.com/creativetim",
+      path: "https://www.twitter.com/",
     },
     {
       color: "gray",
       name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
+      path: "https://www.youtube.com/",
     },
     {
       color: "gray",
       name: "instagram",
-      path: "https://www.instagram.com/creativetimofficial/",
+      path: "https://www.instagram.com/twentynine.solution/",
     },
     {
       color: "black",
       name: "github",
-      path: "https://github.com/creativetimofficial/material-tailwind",
+      path: "https://www.github.com/yusufarya",
     },
   ],
   menus: [
     {
       name: "useful links",
       items: [
-        { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-        { name: "Blog", path: "https://www.creative-tim.com/blog" },
+        { name: "About Us", path: "https://profile.yad29.my.id/" },
         {
           name: "Github",
-          path: "https://www.github.com/creativetimofficial/material-tailwind?ref=mtk",
+          path: "https://www.github.com/yusufarya",
+        },
+        {
+          name: "LinkedIn",
+          path: "https://www.linkedin.com/in/yusuf-aryadilla-7ab7661b6/",
         },
         {
           name: "Demo Products",
@@ -137,7 +140,7 @@ Footer.defaultProps = {
         },
         {
           name: "Contact Us",
-          path: "https://creative-tim.com/contact-us?ref=mtk",
+          path: "https://profile.yad29.my.id/",
         },
       ],
     },
@@ -146,11 +149,11 @@ Footer.defaultProps = {
     <>
       Copyright © {year} TN Studio by{" "}
       <a
-        href="https://www.creative-tim.com?ref=mtk"
+        href="https://profile.yad29.my.id/"
         target="_blank"
-        className="text-blue-gray-500 transition-colors hover:text-blue-500"
+        className="text-blue-500 transition-colors hover:text-blue-800"
       >
-        Creative Tim
+        Twenty Nine Solution
       </a>
       .
     </>
