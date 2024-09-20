@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Footer } from "@/widgets/layout";
 import { Button, Card, CardBody, Collapse, Typography } from "@material-tailwind/react";
-import { featuresData } from "@/data";
+import { featuresData, ModulesData } from "@/data";
+import { useDraggable } from "react-use-draggable-scroll";
 
 export function AllFeature() {
 
   const [isOpen, setIsOpen] = useState(false); // State to control popup visibility
   const [imgSrc, setImgSrc] = useState(null); // State to control popup visibility
   const [imgAlt, setImgAlt] = useState('booking-img'); // State to control popup visibility
+  
+  const ref = useRef(); // We will use React useRef hook to reference the wrapping div:
+  const { events } = useDraggable(ref); // Now we pass the reference to the useDraggable hook:
+
+  const [selectedDataModule, setSelectedDataModule] = useState(ModulesData[0])
 
   // Function to toggle the popup visibility
   const togglePopup = (img) => {
@@ -32,6 +38,11 @@ export function AllFeature() {
       return newOpenSections;
     });
   };
+
+  const selectItemModule = (title) => {
+    const filteredData = ModulesData.filter(item => item.title === title);
+    setSelectedDataModule(filteredData[0])
+  }
   
   
   return (
@@ -100,7 +111,13 @@ export function AllFeature() {
 
         <div className="mt-0 md:mt-32 lg:mt-32 flex flex-wrap items-center">
           <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
-          <div className="mx-auto mt-8 flex w-full justify-center p-4 md:w-2/12 lg:mt-0">
+          <div className="mx-auto mt-8 flex w-full justify-center p-4 md:w-2/12 lg:mt-0"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-anchor-placement="top-center"
+          >
             <img 
               src='/img/features/booking_potrait.png'
               alt={imgAlt}
@@ -108,7 +125,13 @@ export function AllFeature() {
             />
           </div>
 
-          <div className="mx-auto mt-8 w-full justify-center p-4 md:w-8/12 lg:mt-0 ">
+          <div className="mx-auto mt-8 w-full justify-center p-4 md:w-8/12 lg:mt-0 "
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="800"
+            data-aos-easing="ease-in-out"
+            data-aos-anchor-placement="top-center"
+          >
             {featuresData.map(({ color, title, icon, description }, index) => (
               <div key={index}>
                 <div className="font-semibold text-blue-gray-700 py-1 hover:text-blue-900 cursor-pointer"
@@ -136,6 +159,43 @@ export function AllFeature() {
           <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
         </div>
 
+      </section>
+
+      <section className="relative bg-gray-50 py-10">
+        <div className="mt-0 md:mt-10 lg:mt-10 flex flex-wrap items-center">
+          <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
+          <div className="w-full justify-center md:w-10/12 lg:w-10/12" 
+              data-aos="fade-up"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-out"
+              data-aos-anchor-placement="top-center"
+            >
+            <div className="flex space-x-3 overflow-x-hidden scrollbar-hide shadow-sm py-3 border-2 border-grey-100 rounded-md"
+              {...events}
+              ref={ref} 
+            >
+              {
+                ModulesData.map((item, index) => (
+                  <div key={index} className="mx-3">
+                    <Button variant="filled" color="blue" size="md" className="w-40" onClick={() => selectItemModule(item.title)}>
+                      {item.title}
+                    </Button>
+                  </div>
+                ))
+              }
+            </div>
+
+            <div>
+              <img 
+                src={selectedDataModule.img} 
+                alt={selectedDataModule.title}
+                className="w-full h-auto shadow-md rounded-md"
+              />
+            </div>
+
+          </div>
+          <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
+        </div>
       </section>
 
       {/* Popup Modal */}
