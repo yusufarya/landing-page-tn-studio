@@ -91,7 +91,8 @@ export function Home() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center" 
                 data-aos="fade-zoom-in"
-                data-aos-duration="500"
+                data-aos-delay="200"
+                data-aos-duration="1000"
                 data-aos-easing="ease-in-back"
                 >
             <Button variant="filled" color="blue" onClick={handleAllFeature}>Lihat fitur selengkapnya</Button>
@@ -100,6 +101,7 @@ export function Home() {
           <div className="mt-10 md:mt-20 lg:mt-20 flex flex-wrap items-center">
             <div className="mx-auto mt-0 w-full px-4 md:w-5/12 border-r-4 border-blue-500"
                 data-aos="fade-right"
+                data-aos-delay="200"
                 data-aos-duration="500"
                 data-aos-easing="ease-in-sine"
                 >
@@ -124,7 +126,7 @@ export function Home() {
             </div>
             <div className="mx-auto mt-8 flex w-full justify-center px-0 md:px-4 lg:px-4 md:w-5/12 lg:mt-0"
                 data-aos="fade-left"
-                data-aos-delay="100"
+                data-aos-delay="300"
                 data-aos-duration="800"
                 data-aos-easing="ease-in-sine"
                 >
@@ -150,7 +152,7 @@ export function Home() {
           <div className="mt-0 md:mt-32 lg:mt-32 flex flex-wrap items-center">
             <div className="mx-auto mt-24 flex w-full justify-center px-0 md:px-4 lg:px-4 md:w-5/12 lg:mt-0"
                 data-aos="fade-right"
-                data-aos-delay="50"
+                data-aos-delay="200"
                 data-aos-duration="500"
                 data-aos-easing="ease-in-sine"
               >
@@ -172,7 +174,7 @@ export function Home() {
             </div>
             <div className="mx-auto mt-8 w-full px-4 md:w-5/12 border-l-4 border-blue-500"
                 data-aos="fade-left"
-                data-aos-delay="100"
+                data-aos-delay="300"
                 data-aos-duration="800"
                 data-aos-easing="ease-in-sine"
               >
@@ -299,7 +301,7 @@ export function Home() {
           onClick={togglePopup} // Close popup when clicking outside
         >
           <div 
-            className="bg-white p-4 rounded-lg shadow-lg max-w-3xl w-full relative"
+            className="bg-white p-4 rounded-lg shadow-lg max-w-4xl w-full relative"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
           >
             {/* Close button */}
