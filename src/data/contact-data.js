@@ -6,22 +6,22 @@ import {
 
 export const contactData = [
   {
-    title: "Excelent Services",
+    title: "Layanan Unggulan, Solusi Efektif",
     icon: BriefcaseIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Kami menawarkan layanan unggulan yang dirancang untuk memberikan solusi terbaik bagi bisnis dan pelanggan Anda.",
   },
   {
-    title: "Grow Your Market",
+    title: "Perluas Jangkauan & Raih Lebih Banyak Pelanggan",
     icon: ChartBarIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Dengan solusi digital yang tepat, kami membantu Anda menjangkau audiens yang lebih luas dan meningkatkan kehadiran bisnis Anda di pasar.",
   },
   {
-    title: "Launch Time",
+    title: "Mulai Sekarang, Waktunya Peluncuran!",
     icon: PlayIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Inilah waktunya untuk membawa bisnis Anda ke level berikutnya dengan solusi kami yang siap digunakan.",
   },
 ];
 

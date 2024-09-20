@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardBody,
@@ -17,6 +17,17 @@ import { featuresData, teamData, contactData } from "@/data";
 import { useNavigate } from "react-router-dom";
 
 export function Home() {
+
+  const [isOpen, setIsOpen] = useState(false); // State to control popup visibility
+  const [imgSrc, setImgSrc] = useState(null); // State to control popup visibility
+  const [imgAlt, setImgAlt] = useState('booking-img'); // State to control popup visibility
+
+  // Function to toggle the popup visibility
+  const togglePopup = (img) => {
+    setImgSrc(img)
+    setIsOpen(!isOpen);
+  };
+
   const navigate = useNavigate();
 
   const handleAllFeature = () => {
@@ -118,11 +129,12 @@ export function Home() {
                 data-aos-easing="ease-in-sine"
                 >
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
-                <CardHeader floated={false} className="relative h-56">
+                <CardHeader floated={false} className="relative h-56" onClick={() => togglePopup('/img/product/dashboard_studio.png')}>
                   <img
                     alt="Card Image"
                     src="/img/product/dashboard_studio.png"
-                    className="h-full w-full border-t-8 border-b-8 border-blue-500"
+                    className="h-full w-full border-t-8 border-b-8 border-blue-500 cursor-pointer"
+                    
                   />
                 </CardHeader>
                 <CardBody>
@@ -143,11 +155,11 @@ export function Home() {
                 data-aos-easing="ease-in-sine"
               >
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
-                <CardHeader floated={false} className="relative h-64">
+                <CardHeader floated={false} className="relative h-72" onClick={() => togglePopup('/img/product/customize_web.png')}>
                   <img
                     alt="Card Image"
                     src="/img/product/customize_web.png"
-                    className="h-full w-full border-t-8 border-b-8 border-blue-500"
+                    className="h-full w-full border-t-8 border-b-8 border-blue-500 cursor-pointer"
                   />
                 </CardHeader>
                 <CardBody>
@@ -217,10 +229,11 @@ export function Home() {
       </section> */}
       <section className="relative bg-white py-24 px-4">
         <div className="container mx-auto">
-          <PageTitle section="Co-Working" heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
+          {/* <PageTitle section="Rekan Kerja" heading="Bangun Sesuatu"> */}
+          <PageTitle heading="Migrasi Dengan Bisnis Digital">
+            {/* Put the potentially record low maximum sea ice extent tihs year down
             to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+            Administration, Ted, Scambos. */}
           </PageTitle>
           <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (
@@ -230,7 +243,7 @@ export function Home() {
                 shadow={false}
                 className="text-center text-blue-gray-900"
               >
-                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
+                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-800 shadow-lg shadow-500/20">
                   {React.createElement(icon, {
                     className: "w-5 h-5 text-white",
                   })}
@@ -244,8 +257,8 @@ export function Home() {
               </Card>
             ))}
           </div>
-          <PageTitle section="Contact Us" heading="Want to work with us?">
-            Complete this form and we will get back to you in 24 hours.
+          <PageTitle section="Contact Us" heading="Ingin terhubung dengan kami?">
+            Lengkapi formulir ini dan kami akan menghubungi Anda kembali dalam 24 jam.
           </PageTitle>
           <form className="mx-auto w-full mt-12 lg:w-5/12">
             <div className="mb-8 flex gap-8">
@@ -271,12 +284,47 @@ export function Home() {
               }
               containerProps={{ className: "-ml-2.5" }}
             />
-            <Button variant="filled" size="lg" className="mt-8" fullWidth>
+            <Button variant="filled" color="blue" size="lg" className="mt-8" fullWidth>
               Send Message
             </Button>
           </form>
         </div>
       </section>
+      
+
+      {/* Popup Modal */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          onClick={togglePopup} // Close popup when clicking outside
+        >
+          <div 
+            className="bg-white p-4 rounded-lg shadow-lg max-w-3xl w-full relative"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+          >
+            {/* Close button */}
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              onClick={togglePopup}
+            >
+              ✖
+            </button>
+
+            {/* Dynamic Content */}
+            <div className="text-center p-4">
+              {/* <h2 className="text-xl font-bold mb-2">{popupContent.title}</h2>
+              <p className="text-gray-600 mb-4">{popupContent.description}</p> */}
+              {/* Enlarged Image */}
+              <img 
+                src={imgSrc} 
+                alt={imgAlt}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="bg-white">
         <Footer />
       </div>
