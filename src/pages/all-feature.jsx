@@ -165,24 +165,30 @@ export function AllFeature() {
         <div className="mt-0 md:mt-10 lg:mt-10 flex flex-wrap items-center">
           <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
           <div className="w-full justify-center md:w-10/12 lg:w-10/12" 
-              data-aos="fade-up"
-              data-aos-duration="500"
-              data-aos-easing="ease-in-out"
-              data-aos-anchor-placement="top-center"
-            >
-            <div className="flex space-x-3 overflow-x-hidden scrollbar-hide shadow-sm py-3 border-2 border-blue-gray-100 rounded-md"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-anchor-placement="top-center"
+          >
+            <div
+              className="flex space-x-3 overflow-x-scroll scrollbar-hide shadow-sm py-3 border-2 border-blue-gray-100 rounded-md"
               {...events}
               ref={ref} 
+              style={{ WebkitOverflowScrolling: "touch" }} // Enable momentum scrolling on mobile
             >
-              {
-                ModulesData.map((item, index) => (
-                  <div key={index} className="mx-3">
-                    <Button variant="filled" color="blue" size="md" className="w-40" onClick={() => selectItemModule(item.title)}>
-                      {item.title}
-                    </Button>
-                  </div>
-                ))
-              }
+              {ModulesData.map((item, index) => (
+                <div key={index} className="mx-3">
+                  <Button
+                    variant="filled"
+                    color="blue"
+                    size="md"
+                    className={`w-40 ${item.title === selectedDataModule.title ? 'text-blue-500 bg-blue-gray-50 border-2 border-blue-500' : ''}`}
+                    onClick={() => selectItemModule(item.title)}
+                  >
+                    {item.title}
+                  </Button>
+                </div>
+              ))}
             </div>
 
             <div className="mt-3">
