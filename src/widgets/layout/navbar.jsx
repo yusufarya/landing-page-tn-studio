@@ -65,7 +65,7 @@ export function Navbar({ brandName, routes, action }) {
     <MTNavbar color="transparent" className="p-3">
       <div className="container mx-auto flex items-center justify-between text-white">
         <Link to="/" className="flex bg-white text-gray-800 rounded-md pl-3 py-1">
-          <img src="/public/img/cam.png" className="h-10" />
+          <img src="/img/cam.png" className="h-10" />
           <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
             {brandName}
           </Typography>
@@ -110,17 +110,21 @@ export function Navbar({ brandName, routes, action }) {
         <div className="container mx-auto">
           {navList}
           <a
-            href="https://www.material-tailwind.com/blocks/react?ref=mtkr"
+            href="http://103.59.94.161:90/admin"
             target="_blank"
-            className="mb-2 block"
           >
-            <Button variant="text" size="sm" fullWidth>
-              pro version
+            <Button variant="outlined" size="sm" color="blue" fullWidth>
+              Coba Gratis
             </Button>
           </a>
-          {React.cloneElement(action, {
-            className: "w-full block",
-          })}
+          <a
+            href="http://103.59.94.161:90/"
+            target="_blank"
+          >
+            <Button variant="filled" size="sm" color="blue" fullWidth>
+              Live Demo
+            </Button>
+          </a>
         </div>
       </div>
       </Collapse>
