@@ -192,7 +192,6 @@ export function AllFeature() {
                 className="w-full h-auto shadow-md rounded-md border-2 border-blue-gray-100"
               />
             </div>
-
           </div>
           <div className="mx-auto mt-8 w-full justify-center p-4 md:w-1/12 lg:mt-0 hidden md:block lg:block"></div>
         </div>
