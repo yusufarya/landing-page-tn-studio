@@ -93,34 +93,37 @@ export function ContactUs() {
                         <PageTitle section="" heading="Ingin terhubung dengan kami?">
                             Lengkapi formulir ini dan kami akan menghubungi Anda kembali dalam 24 jam.
                         </PageTitle>
-                        <form className="mx-auto w-full mt-12 lg:w-10/12" onSubmit={handleSubmit}>
-                            <div className="mb-8 flex gap-8">
+                        <form className="mx-auto w-full px-4 mt-12 lg:w-10/12" onSubmit={handleSubmit}>
+                            <div className="mb-8 lg:flex gap-8">
                                 <input type="hidden" name="to_name" value="TN Studio" />
-                                <Input 
+                                <Input
                                     variant="outlined" 
                                     size="lg" 
-                                    label="Full Name" 
+                                    label="Nama lengkap anda" 
                                     id="from_name"
                                     name="from_name"
+                                    required
                                     onChange={handleChange} />
-                                <Input 
+                                <Input
                                     variant="outlined" 
                                     size="lg" 
-                                    label="Email Address"
+                                    label="Alamat email anda"
                                     id="email"
                                     name="reply_to"
+                                    required
                                     onChange={handleChange}  />
                             </div>
                             <Textarea 
                                 variant="outlined" 
                                 size="lg" 
-                                label="Message" rows={5} 
+                                label="Tuliskan pesan" rows={5} 
                                 name="message"
                                 id="message"
+                                required
                                 onChange={handleChange}
 
                                 />
-                            <Checkbox
+                            {/* <Checkbox
                             label={
                                 <Typography
                                 variant="small"
@@ -137,9 +140,9 @@ export function ContactUs() {
                                 </Typography>
                             }
                             containerProps={{ className: "-ml-2.5" }}
-                            />
+                            /> */}
                             <Button variant="filled" color="blue" size="lg" type="submit" className="mt-8" fullWidth>
-                                Send Message
+                                Kirim Pesan
                             </Button>
                         </form>
                     </div>
@@ -162,13 +165,14 @@ export function ContactUs() {
                             <Textarea
                                 variant="outlined"
                                 size="lg"
-                                label="Message"
+                                label="Pesan WhatsApp"
                                 rows={8}
                                 value={WAMessage}
+                                required
                                 onChange={(e) => setMessage(e.target.value)} // Update state ketika user mengetik
                             />
-                            <Button variant="filled" color="blue" size="lg" className="mt-8" fullWidth type="submit">
-                                Send Message
+                            <Button variant="filled" color="green" size="lg" className="mt-8" fullWidth type="submit">
+                                Kirim Pesan WhatsApp
                             </Button>
                         </form>
                     </div>
