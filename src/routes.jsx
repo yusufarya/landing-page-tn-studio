@@ -1,4 +1,5 @@
 import { Home, AllFeature, Profile, SignIn, SignUp } from "@/pages";
+import ContactUs from "./pages/contact-us";
 
 export const routes = [
   {
@@ -10,6 +11,11 @@ export const routes = [
     name: "Fitur",
     path: "/all-feature",
     element: <AllFeature />,
+  },
+  {
+    name: "Hubungi Kami",
+    path: "/contact-us",
+    element: <ContactUs />,
   },
   {
     name: "Personal Profil",
